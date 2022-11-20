@@ -1,0 +1,55 @@
+type Order {
+    id: ID!
+    products : [ProductOrder]!
+    customer: Customer
+}
+
+input OrderInput {
+    products : [ProductOrderInput]!
+    customer: CustomerInput
+}
+
+type Product {
+    id: ID!
+    name: String!
+}
+
+input ProductInput {
+    id: ID!
+}
+
+type ProductOrder {
+    product(id: String): Product!
+    quantity: Int!
+}
+
+input ProductOrderInput {
+    product: ProductInput!
+    quantity: Int!
+}
+
+type Customer {
+    id: ID!
+    name: String!
+}
+
+input CustomerInput {
+    id: ID!
+}
+
+# The Root Query for the application
+# Only one definition of this type is allowed per schema.
+type Query {
+    orders: [Order]!
+    order(id: ID!): Order
+    products: [Product]!
+    product(id: ID!): Product
+    customers: [Customer]!
+    customer(id: ID!) : Customer
+}
+
+type Mutation {
+    createOrder(order: OrderInput!) : Order!
+    createCustomer(name: String!) : Customer!
+    createProduct(name: String!) : Product!
+}
