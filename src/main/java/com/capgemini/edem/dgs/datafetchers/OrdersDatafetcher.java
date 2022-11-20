@@ -4,7 +4,7 @@ import com.capgemini.edem.dgs.types.Order;
 import com.netflix.graphql.dgs.DgsComponent;
 import com.netflix.graphql.dgs.DgsData;
 import graphql.schema.DataFetchingEnvironment;
-import java.util.List;
+import reactor.core.publisher.Flux;
 
 @DgsComponent
 public class OrdersDatafetcher {
@@ -12,7 +12,7 @@ public class OrdersDatafetcher {
       parentType = "Query",
       field = "orders"
   )
-  public List<Order> getOrders(DataFetchingEnvironment dataFetchingEnvironment) {
+  public Flux<Order> getOrders(DataFetchingEnvironment dataFetchingEnvironment) {
     return null;
   }
 }

@@ -1,17 +1,19 @@
 package com.capgemini.edem.dgs.datafetchers;
 
+import com.capgemini.edem.dgs.DgsConstants.QUERY;
 import com.capgemini.edem.dgs.types.Customer;
 import com.netflix.graphql.dgs.DgsComponent;
 import com.netflix.graphql.dgs.DgsData;
 import graphql.schema.DataFetchingEnvironment;
+import reactor.core.publisher.Mono;
 
 @DgsComponent
 public class CustomerDatafetcher {
   @DgsData(
-      parentType = "Query",
-      field = "customer"
+      parentType = QUERY.TYPE_NAME,
+      field = QUERY.Customer
   )
-  public Customer getCustomer(DataFetchingEnvironment dataFetchingEnvironment) {
+  public Mono<Customer> getCustomer(DataFetchingEnvironment dataFetchingEnvironment) {
     return null;
   }
 }

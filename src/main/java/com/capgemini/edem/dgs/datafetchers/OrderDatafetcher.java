@@ -4,6 +4,7 @@ import com.capgemini.edem.dgs.types.Order;
 import com.netflix.graphql.dgs.DgsComponent;
 import com.netflix.graphql.dgs.DgsData;
 import graphql.schema.DataFetchingEnvironment;
+import reactor.core.publisher.Mono;
 
 @DgsComponent
 public class OrderDatafetcher {
@@ -11,7 +12,7 @@ public class OrderDatafetcher {
       parentType = "Query",
       field = "order"
   )
-  public Order getOrder(DataFetchingEnvironment dataFetchingEnvironment) {
+  public Mono<Order> getOrder(DataFetchingEnvironment dataFetchingEnvironment) {
     return null;
   }
 }
