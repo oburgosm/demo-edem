@@ -19,6 +19,7 @@
     <dgs.version>5.4.3</dgs.version>
     <graphqlcodegen-maven-plugin.version>1.26</graphqlcodegen-maven-plugin.version>
     <graphql-java.version>19.2</graphql-java.version>
+    <mapstrut.version>1.5.3.Final</mapstrut.version>
   </properties>
   <dependencies>
     <dependency>
@@ -40,6 +41,11 @@
     <dependency>
       <groupId>org.springframework.cloud</groupId>
       <artifactId>spring-cloud-starter-sleuth</artifactId>
+    </dependency>
+    <dependency>
+      <groupId>org.mapstruct</groupId>
+      <artifactId>mapstruct</artifactId>
+      <version>${mapstrut.version}</version> 
     </dependency>
 
     <dependency>
@@ -94,6 +100,8 @@
                 <param>src/main/resources/schema/schema.graphqls</param>
               </schemaPaths>
               <generateDataTypes>true</generateDataTypes>
+              <generateInterfaces>true</generateInterfaces>
+              <generateInterfaceSetters>true</generateInterfaceSetters>
             </configuration>
           </execution>
         </executions>
@@ -114,6 +122,19 @@
             </configuration>
           </execution>
         </executions>
+      </plugin>
+      <plugin>
+        <groupId>org.apache.maven.plugins</groupId>
+        <artifactId>maven-compiler-plugin</artifactId>
+        <configuration>
+          <annotationProcessorPaths>
+            <path>
+              <groupId>org.mapstruct</groupId>
+              <artifactId>mapstruct-processor</artifactId>
+              <version>${mapstrut.version}</version> 
+            </path>
+          </annotationProcessorPaths>
+        </configuration>
       </plugin>
     </plugins>
     
