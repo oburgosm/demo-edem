@@ -35,8 +35,8 @@ public class ProductDatafetcher {
   private TypeMapper mapper;
 
   @DgsMutation
-  public Mono<? extends IProduct> createProduct(@InputArgument String name) {
-    return this.productRepository.save(this.mapper.toProductDTO(Product.newBuilder().name(name).build()));
+  public Mono<? extends IProduct> createProduct(@InputArgument String name, @InputArgument String description) {
+    return this.productRepository.save(this.mapper.toProductDTO(Product.newBuilder().name(name).description(description).build()));
   }
 
   @DgsMutation
@@ -45,9 +45,10 @@ public class ProductDatafetcher {
   }
 
   @DgsMutation
-  public Mono<? extends IProduct> updateProduct(@InputArgument String id, @InputArgument String name) {
+  public Mono<? extends IProduct> updateProduct(@InputArgument String id, @InputArgument String name, String description) {
     return this.productRepository.findById(id).flatMap((p) -> {
       p.setName(name);
+      p.setDescription(description);
       return this.productRepository.save(p);
     });
   }
