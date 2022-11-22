@@ -12,6 +12,7 @@ input OrderInput {
 type Product {
     id: ID!
     name: String!
+    description: String
 }
 
 input ProductInput {
@@ -30,7 +31,8 @@ input ProductOrderInput {
 
 type Customer {
     id: ID!
-    name: String!
+    firstName: String!
+    surName: String
 }
 
 input CustomerInput {
@@ -50,6 +52,11 @@ type Query {
 
 type Mutation {
     createOrder(order: OrderInput!) : Order!
-    createCustomer(name: String!) : Customer!
-    createProduct(name: String!) : Product!
+    createCustomer(firstName: String!, surName: String) : Customer!
+    createProduct(name: String!, description: String) : Product!
+    deleteProduct(id: String!) : Product!
+    deleteCustomer(id: String!) : Customer!
+    deleteOrder(id: String!) : Order!
+    updateProduct(id: String!, name: String!) : Product!
+    updateCustomer(id: String!, firstName: String!, surName: String) : Customer
 }
