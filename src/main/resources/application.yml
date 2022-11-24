@@ -5,3 +5,8 @@ spring:
   data:
     mongodb:
       auto-index-creation: true
+management:
+  endpoints:
+    web:
+      exposure:
+        include: prometheus,health,info,metric
