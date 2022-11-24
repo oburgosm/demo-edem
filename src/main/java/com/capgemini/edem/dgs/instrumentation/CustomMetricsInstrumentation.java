@@ -20,13 +20,13 @@ final class CustomMetricsInstrumentation extends TracingInstrumentation {
 
 	private MeterRegistry meterRegistry;
 
-	CustomMetricsInstrumentation(MeterRegistry meterRegistry) {
+	CustomMetricsInstrumentation(final MeterRegistry meterRegistry) {
 		this.meterRegistry = meterRegistry;
 	}
 
 	@Override
-	public CompletableFuture<ExecutionResult> instrumentExecutionResult(ExecutionResult executionResult,
-			InstrumentationExecutionParameters parameters) {
+	public CompletableFuture<ExecutionResult> instrumentExecutionResult(final ExecutionResult executionResult,
+			final InstrumentationExecutionParameters parameters) {
 
 		String status = CollectionUtils.isEmpty(executionResult.getErrors()) ? "success" : "error";
 		String operation = parameters.getOperation() != null ? parameters.getOperation() : UNKNOWN_OPERATION_NAME;
