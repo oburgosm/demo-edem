@@ -1,6 +1,6 @@
 # Application for testing purpose
 
-This application is an example of topics explained in the course **&broker.dataDirectory=./target/vm**
+This application is an example of topics explained in the course **High Potencial Technical Booster**
 
 ## Prerequisites
 
