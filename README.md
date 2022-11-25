@@ -64,24 +64,6 @@ Query Variables example
 }
 ```
 
-- Insert a product:
-
-```graphql
-mutation CreateProduct($productName:String!, $productDescription:String) {
-  createProduct(name: $productName, description: $productDescription) {
-    id, name, description
-  }
-}
-```
-
-Query Variables example
-```json
-{
-  "productName": "Pantalón",
-  "productDescription": "Pantalón Slim Fit"
-}
-```
-
 - Insert a customer:
 
 ```graphql
@@ -139,7 +121,7 @@ Query Variables example
       "product": {
         "id": "6380fda3e8228804ffbd1ac4"
       },
-      "quantity": 5
+      "quantity": 3
     }
   ]
 }
