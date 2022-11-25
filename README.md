@@ -18,7 +18,7 @@ mvn clean install
 
 - Start containers (mongo, grafana and zipkin) with docker compose:
 
-```sh
+```bash
 docker compose up -d
 ```
 
@@ -30,7 +30,7 @@ docker run -d -p 9090:9090 -v path_to_prometheus.yml prom/prometheus
 
 - Start application
 
-```
+```bash
 mvn clean spring-boot:run
 ```
 
@@ -58,9 +58,8 @@ mutation CreateProduct($productName:String!, $productDescription:String) {
 
 Query Variables example
 ```graphql
-mutation CreateProduct($productName:String!, $productDescription:String) {
-  createProduct(name: $productName, description: $productDescription) {
-    id, name, description
-  }
+{
+  "productName": "Pantalón",
+  "productDescription": "Pantalón Slim Fit"
 }
 ```
