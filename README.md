@@ -48,7 +48,7 @@ or execute application from your IDE
 
 - Insert a product:
 
-```json
+```
 mutation CreateProduct($productName:String!, $productDescription:String) {
   createProduct(name: $productName, description: $productDescription) {
     id, name, description
@@ -57,7 +57,7 @@ mutation CreateProduct($productName:String!, $productDescription:String) {
 ```
 
 Query Variables example
-```json
+```
 mutation CreateProduct($productName:String!, $productDescription:String) {
   createProduct(name: $productName, description: $productDescription) {
     id, name, description
