@@ -5,3 +5,15 @@ spring:
   data:
     mongodb:
       auto-index-creation: true
+graphql:
+  servlet:
+    tracing-enabled: true
+    actuator-metrics: true
+management:
+  endpoint:
+  metrics:
+    enabled: true
+  endpoints:
+    web:
+      exposure:
+        include: prometheus,health,info,metrics
