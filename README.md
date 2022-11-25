@@ -36,10 +36,31 @@ mvn clean spring-boot:run
 
 or execute application from your IDE
 
-# Using application
+## Using application
 
 - GraphiQL Endpoint: http://localhost:8080/graphiql
 - Zipkin endpoint: http://localhost:8411
 - Grafana endpoint: http://localhost:3000
    (user: admin  | password: admin)
 - Prometheus endpoint: http://localhost:9090
+
+## Query examples
+
+- Insert a product:
+
+``` json
+mutation CreateProduct($productName:String!, $productDescription:String) {
+  createProduct(name: $productName, description: $productDescription) {
+    id, name, description
+  }
+}
+```
+
+.Query Variables example
+``` json
+mutation CreateProduct($productName:String!, $productDescription:String) {
+  createProduct(name: $productName, description: $productDescription) {
+    id, name, description
+  }
+}
+```
