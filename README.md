@@ -10,7 +10,7 @@ This application is an example of topics explained in the course **High Potencia
 
 ## How to build application
 
-```
+```bash
 mvn clean install
 ```
 
@@ -18,13 +18,13 @@ mvn clean install
 
 - Start containers (mongo, grafana and zipkin) with docker compose:
 
-```
+```sh
 docker compose up -d
 ```
 
 - Start Prometheus with docker:
 
-```
+```bash
 docker run -d -p 9090:9090 -v path_to_prometheus.yml prom/prometheus
 ```
 
