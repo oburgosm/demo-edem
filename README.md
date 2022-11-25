@@ -34,3 +34,12 @@ or execute from your IDE
 
 - GraphiQL Endpoint: http://localhost:8080/graphiql
 - Zipkin endpoint: http://localhost:8411
+- Grafana endpoint: http://localhost:3000
+   (user: admin  | password: admin)
+   
+   ##### Prometheus 
+   It is not into docker compose, deploy separately:
+   
+   `docker run -d -p 9090:9090 -v path_to_prometheus.yml prom/prometheus`
+   
+   endpoint: http://localhost:9090
