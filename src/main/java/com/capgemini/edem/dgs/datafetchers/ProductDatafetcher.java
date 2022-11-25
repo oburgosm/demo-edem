@@ -11,8 +11,6 @@ import com.netflix.graphql.dgs.DgsMutation;
 import com.netflix.graphql.dgs.DgsQuery;
 import com.netflix.graphql.dgs.InputArgument;
 import graphql.schema.DataFetchingEnvironment;
-import io.micrometer.core.instrument.Counter;
-import io.micrometer.core.instrument.MeterRegistry;
 import org.springframework.beans.factory.annotation.Autowired;
 import reactor.core.publisher.Flux;
 import reactor.core.publisher.Mono;
@@ -22,32 +20,15 @@ public class ProductDatafetcher {
 
   @Autowired
   private ProductRepository productRepository;
-  private Counter testCounter;
-  private Counter testCounterError;
-  private Counter testCounterAll;
-  private Counter testCounterAllError;
-  
-  public ProductDatafetcher(MeterRegistry meterRegistry) {
-	  testCounter = meterRegistry.counter("get_Product_id");
-	  testCounterError = meterRegistry.counter("get_Product_id_error");
-	  testCounterAll = meterRegistry.counter("get_Products_all");
-	  testCounterAllError = meterRegistry.counter("get_Products_all_error");
-}
 
   @DgsQuery(field = QUERY.Product)
   public Mono<? extends IProduct> getProduct(@InputArgument String id) {
-	  testCounter.increment();
-    return this.productRepository.findById(id).doOnError(t -> 
-    testCounterError.increment()
-    );
+    return this.productRepository.findById(id);
   }
 
   @DgsQuery(field = QUERY.Products)
   public Flux<? extends IProduct> getProducts(DataFetchingEnvironment dataFetchingEnvironment) {
-	  testCounterAll.increment();
-	    return this.productRepository.findAll().doOnError(t -> 
-	    testCounterAllError.increment()
-	    );
+    return this.productRepository.findAll();
   }
 
   @Autowired
