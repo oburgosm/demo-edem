@@ -57,7 +57,7 @@ mutation CreateProduct($productName:String!, $productDescription:String) {
 ```
 
 Query Variables example
-```graphql
+```json
 {
   "productName": "Pantalón",
   "productDescription": "Pantalón Slim Fit"
