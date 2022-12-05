@@ -16,7 +16,7 @@
   <properties>
     <java.version>17</java.version>
     <spring-cloud.version>2021.0.5</spring-cloud.version>
-    <dgs.version>5.4.3</dgs.version>
+    <dgs.version>5.4.4</dgs.version>
     <graphqlcodegen-maven-plugin.version>1.26</graphqlcodegen-maven-plugin.version>
     <graphql-java.version>19.2</graphql-java.version>
     <mapstrut.version>1.5.3.Final</mapstrut.version>
